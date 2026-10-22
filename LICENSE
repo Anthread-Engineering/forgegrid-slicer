@@ -1,0 +1,16 @@
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+This software is a fork of UltiMaker Cura, which is released under the
+GNU Lesser General Public License v3.0 (LGPLv3). This fork, forgegrid slicer,
+is distributed under the GNU General Public License v3.0 (GPLv3).
+
+For the full text of the GPLv3 license, see:
+https://www.gnu.org/licenses/gpl-3.0.en.html
+
+For the original Cura source code and license:
+https://github.com/Ultimaker/Cura

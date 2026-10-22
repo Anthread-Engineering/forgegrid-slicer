@@ -1,0 +1,36 @@
+{
+    "name": "forgegrid bild",
+    "version": 2,
+    "inherits": "fdmprinter",
+    "metadata": {
+        "visible": true,
+        "author": "ForgeGrid",
+        "manufacturer": "ForgeGrid",
+        "category": "Other",
+        "file_formats": "text/x-gcode",
+        "has_machine_quality": true,
+        "preferred_quality_type": "normal",
+        "machine_extruder_trains": {
+            "0": "forgegrid_extruder_0"
+        },
+        "firmware_flavor": "Marlin"
+    },
+    "overrides": {
+        "machine_name": { "default_value": "forgegrid bild" },
+        "machine_width": { "default_value": 160 },
+        "machine_depth": { "default_value": 160 },
+        "machine_height": { "default_value": 160 },
+        "machine_heated_bed": { "default_value": true },
+        "machine_center_is_zero": { "default_value": false },
+        "gantry_height": { "default_value": 0 },
+        "machine_head_with_fans_polygon": {
+            "default_value": [[-25, 25], [25, 25], [25, -25], [-25, -25]]
+        },
+        "machine_start_gcode": {
+            "default_value": "G28 ; Home all axes\nG29 ; Auto-level (remove if not fitted)\nG1 Z5 F5000 ; Lift nozzle\nG1 X0.1 Y20 Z0.3 F5000 ; Move to purge start\nG1 X0.1 Y150 Z0.3 F1500 E15 ; Purge line\nG92 E0 ; Reset extruder\n"
+        },
+        "machine_end_gcode": {
+            "default_value": "G91 ; Relative positioning\nG1 E-2 F2700 ; Retract\nG1 E-2 Z0.2 F2400 ; Retract and raise Z\nG1 X5 Y5 F3000 ; Wipe\nG1 Z10 ; Raise Z\nG90 ; Absolute positioning\nG1 X0 Y{machine_depth} ; Present print\nM106 S0 ; Fan off\nM104 S0 ; Hotend off\nM140 S0 ; Bed off\nM84 ; Motors off\n"
+        }
+    }
+}

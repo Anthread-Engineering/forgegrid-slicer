@@ -1,0 +1,13 @@
+{
+    "name": "ForgeGrid Extruder 0",
+    "version": 2,
+    "inherits": "fdmextruder",
+    "metadata": {
+        "machine": "forgegrid_bedslinger",
+        "position": "0"
+    },
+    "overrides": {
+        "extruder_nr": { "default_value": 0 },
+        "machine_nozzle_size": { "default_value": 0.4 }
+    }
+}
