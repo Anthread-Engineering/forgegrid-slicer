@@ -1,7 +1,7 @@
 {
     "forgegrid-slicer": {
         "Windows": {
-            "major": 1,
+            "major": 2,
             "minor": 0,
             "revision": 0,
             "url": "https://github.com/Anthread-Engineering/forgegrid-slicer/releases/latest"
