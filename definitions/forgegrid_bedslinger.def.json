@@ -31,6 +31,13 @@
         },
         "machine_end_gcode": {
             "default_value": "G91 ; Relative positioning\nG1 E-2 F2700 ; Retract\nG1 E-2 Z0.2 F2400 ; Retract and raise Z\nG1 X5 Y5 F3000 ; Wipe\nG1 Z10 ; Raise Z\nG90 ; Absolute positioning\nG1 X0 Y{machine_depth} ; Present print\nM106 S0 ; Fan off\nM104 S0 ; Hotend off\nM140 S0 ; Bed off\nM84 ; Motors off\n"
-        }
+        },
+        "retraction_enable": { "default_value": true },
+        "retract_at_layer_change": { "default_value": false },
+        "retraction_amount": { "default_value": 4.0 },
+        "retraction_speed": { "default_value": 45.0 },
+        "retraction_retract_speed": { "default_value": 45.0 },
+        "retraction_prime_speed": { "default_value": 45.0 },
+        "retraction_extra_prime_amount": { "default_value": 0.0 }
     }
 }

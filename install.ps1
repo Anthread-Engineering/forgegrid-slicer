@@ -52,10 +52,35 @@ $qmlMap = @{
     "FileMenu.qml" = "share\cura\resources\qml\Menus"
     "AskOpenAsProjectOrModelsDialog.qml" = "share\cura\resources\qml\Dialogs"
     "UCPDialog.qml" = "share\cura\plugins\3MFWriter"
+    "WelcomeContent.qml" = "share\cura\resources\qml\WelcomePages"
+    "DataCollectionsContent.qml" = "share\cura\resources\qml\WelcomePages"
+    "WorkspaceSummaryDialog.qml" = "share\cura\resources\qml\Dialogs"
 }
 foreach ($file in $qmlMap.Keys) {
     $dest = "$DistDir\$($qmlMap[$file])"
     Copy-Item "$RepoRoot\qml-patches\$file" "$dest\$file" -Force
+}
+
+# 6b. Plugin file patches (rebranded text)
+Write-Host "  -> Plugin rebranding patches"
+$pluginMap = @{
+    "3MFReader-WorkspaceDialog.qml" = "share\cura\plugins\3MFReader\WorkspaceDialog.qml"
+    "3MFReader-WorkspaceDialog.py" = "share\cura\plugins\3MFReader\WorkspaceDialog.py"
+    "3MFReader-ThreeMFWorkspaceReader.py" = "share\cura\plugins\3MFReader\ThreeMFWorkspaceReader.py"
+    "3MFWriter-__init__.py" = "share\cura\plugins\3MFWriter\__init__.py"
+    "3MFWriter-SettingSelection.qml" = "share\cura\plugins\3MFWriter\SettingSelection.qml"
+    "MonitorStage-MonitorMain.qml" = "share\cura\plugins\MonitorStage\MonitorMain.qml"
+    "USBPrinting-USBPrinterOutputDevice.py" = "share\cura\plugins\USBPrinting\USBPrinterOutputDevice.py"
+    "SolidView-SolidView.py" = "share\cura\plugins\SolidView\SolidView.py"
+    "CuraEngineBackend-CuraEngineBackend.py" = "share\cura\plugins\CuraEngineBackend\CuraEngineBackend.py"
+    "CuraProfileWriter-__init__.py" = "share\cura\plugins\CuraProfileWriter\__init__.py"
+    "CuraProfileReader-__init__.py" = "share\cura\plugins\CuraProfileReader\__init__.py"
+    "GCodeReader-GCodeReader.py" = "share\cura\plugins\GCodeReader\GCodeReader.py"
+    "GCodeGzReader-GCodeGzReader.py" = "share\cura\plugins\GCodeGzReader\GCodeGzReader.py"
+    "LegacyProfileReader-__init__.py" = "share\cura\plugins\LegacyProfileReader\__init__.py"
+}
+foreach ($file in $pluginMap.Keys) {
+    Copy-Item "$RepoRoot\plugins\$file" "$DistDir\$($pluginMap[$file])" -Force
 }
 
 # 7. Theme
