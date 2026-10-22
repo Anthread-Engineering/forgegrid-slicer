@@ -36,13 +36,13 @@ class UpdateChecker(Extension):
     def __init__(self) -> None:
         super().__init__()
 
-        self.latest_url = ""
+        self.latest_url = "https://raw.githubusercontent.com/Anthread-Engineering/forgegrid-slicer/main/latest.json"
         self._download_url: Optional[str] = None
 
         self.setMenuName(i18n_catalog.i18nc("@item:inmenu", "Update Checker"))
         self.addMenuItem(i18n_catalog.i18nc("@item:inmenu", "Check for Updates"), self.checkNewVersion)
         preferences = Application.getInstance().getPreferences()
-        preferences.addPreference("info/automatic_update_check", False)
+        preferences.addPreference("info/automatic_update_check", True)
         if preferences.getValue("info/automatic_update_check"):
             self.checkNewVersion(silent = True, display_same_version = False)
 
@@ -50,7 +50,7 @@ class UpdateChecker(Extension):
         preferences.addPreference("info/latest_update_version_shown", Application.getInstance().getVersion())
         preferences.addPreference("info/latest_beta_update_version_shown", Application.getInstance().getVersion())
 
-        preferences.addPreference("info/latest_update_source", "beta")
+        preferences.addPreference("info/latest_update_source", "stable")
 
     def checkNewVersion(self, silent = False, display_same_version = True) -> None:
         """Connect with software.ultimaker.com, load latest.json and check version info.
@@ -115,7 +115,7 @@ class UpdateChecker(Extension):
                 Message(i18n_catalog.i18nc("@info", "The version you are using does not support checking for updates."),
                         title=i18n_catalog.i18nc("@info:title", "Warning")).show()
             return
-        application_name = Application.getInstance().getApplicationName()
+        application_name = "forgegrid-slicer"
         newest_version, download_url = self._extractVersionAndURLFromData(data, application_name)
         newest_beta_version, beta_download_url = self._extractVersionAndURLFromData(data, application_name + "-beta")
 
